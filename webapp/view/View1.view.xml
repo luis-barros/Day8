@@ -1,9 +1,45 @@
 <mvc:View controllerName="com.fcaCorsoSCP.controller.View1" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
 	displayBlock="true" xmlns="sap.m">
-	<App>
+	<App id="app"             >
 		<pages>
-			<Page title="{i18n>title}">
-				<content></content>
+			<Page id="page1" title="{i18n>title}">
+				<content>
+					<Table id="table" items="{/PeopleSet}" >
+						<columns>
+							<Column>
+								<header>
+									<Label text="User Name" />
+								</header>
+							</Column>
+							<Column>
+								<header>
+									<Label text="First Name" />
+								</header>
+							</Column>
+							<Column>
+								<header>
+									<Label text="Last Name" />
+								</header>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem type="Active" press="onItemPress">
+								<cells>
+									<Text text="{Username}"  />
+									<Text text="{Firstname}" />
+									<Text text="{Lastname}" />
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+					<Button text="New Entry" press="onNew" />
+				</content>
+			</Page>
+			<Page id="page2" >
+				<Input id="username" value="{Username}" editable="false"/>
+				<Input value="{Firstname}"/>
+				<Input value="{Lastname}"/>
+				<Button text="Save Changes" press="onSave" />
 			</Page>
 		</pages>
 	</App>
